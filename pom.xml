@@ -11,6 +11,7 @@
     <modules>
         <module>eschat-web</module>
         <module>eschat-service</module>
+        <module>eschat-core</module>
     </modules>
     <properties>
         <jdk.version>1.8</jdk.version>
