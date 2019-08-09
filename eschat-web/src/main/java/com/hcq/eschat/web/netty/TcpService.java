@@ -1,4 +1,4 @@
-package com.hcq.eschat.service.netty;
+package com.hcq.eschat.web.netty;
 
 import com.hcq.eschat.core.listen.Init;
 import io.netty.bootstrap.ServerBootstrap;

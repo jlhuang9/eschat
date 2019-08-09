@@ -1,4 +1,4 @@
-package com.hcq.eschat.service.listion;
+package com.hcq.eschat.core.listen;
 
 public interface Init {
     void init();

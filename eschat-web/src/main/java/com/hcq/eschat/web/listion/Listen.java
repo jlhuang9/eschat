@@ -1,4 +1,4 @@
-package com.hcq.eschat.service.listion;
+package com.hcq.eschat.web.listion;
 
 import com.hcq.eschat.core.listen.Init;
 import org.springframework.context.ApplicationListener;

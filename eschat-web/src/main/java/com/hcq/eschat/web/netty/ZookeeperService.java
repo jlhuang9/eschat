@@ -1,8 +1,9 @@
-package com.hcq.eschat.service.config;
+package com.hcq.eschat.web.netty;
 
 import com.alibaba.fastjson.JSONObject;
-import com.hcq.eschat.core.zoo.ZookeeperSupport;
 import com.hcq.eschat.core.listen.Init;
+import com.hcq.eschat.core.zoo.ZookeeperSupport;
+import netscape.javascript.JSObject;
 import org.apache.zookeeper.KeeperException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -12,7 +13,7 @@ import java.net.UnknownHostException;
 import java.util.List;
 
 @Component
-public class ZookeeperConfig extends ZookeeperSupport implements Init {
+public class ZookeeperService extends ZookeeperSupport implements Init {
 
 
 
@@ -24,7 +25,6 @@ public class ZookeeperConfig extends ZookeeperSupport implements Init {
         try {
             List<String> children = getChildren(path);
             System.out.println(JSONObject.toJSONString(children));
-
         } catch (KeeperException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -34,7 +34,7 @@ public class ZookeeperConfig extends ZookeeperSupport implements Init {
     }
 
     public void init() {
-        ZookeeperConfig zookeeperConfig = new ZookeeperConfig();
+        ZookeeperService zookeeperConfig = new ZookeeperService();
         try {
             zookeeperConfig.connectZookeeper("127.0.0.1:2181");
             zookeeperConfig.createIfSent("/eschat");
@@ -44,7 +44,6 @@ public class ZookeeperConfig extends ZookeeperSupport implements Init {
 
             zookeeperConfig.createTemp("/eschat/service/" + getIP() + ":" + servicePort);
 
-            System.out.println(123);
         } catch (Exception e) {
             e.printStackTrace();
         }
